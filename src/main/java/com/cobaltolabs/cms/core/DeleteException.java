@@ -8,4 +8,20 @@ package com.cobaltolabs.cms.core;
  *         Time: 18:05
  */
 public class DeleteException extends Exception {
+// --------------------------- CONSTRUCTORS ---------------------------
+
+    public DeleteException() {
+    }
+
+    public DeleteException(String s) {
+        super(s);
+    }
+
+    public DeleteException(Throwable throwable) {
+        super(throwable);
+    }
+
+    public DeleteException(String s, Throwable throwable) {
+        super(s, throwable);
+    }
 }

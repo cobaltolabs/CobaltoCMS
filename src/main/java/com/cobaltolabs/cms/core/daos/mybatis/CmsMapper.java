@@ -1,5 +1,9 @@
 package com.cobaltolabs.cms.core.daos.mybatis;
 
+import com.cobaltolabs.cms.core.IdBean;
+
+import java.util.List;
+
 /**
  * Created by IntelliJ IDEA.
  *
@@ -7,5 +11,16 @@ package com.cobaltolabs.cms.core.daos.mybatis;
  *         Date: 22/02/12
  *         Time: 0:14
  */
-public interface CmsMapper {
+public interface CmsMapper<I, T extends IdBean<I>> {
+// -------------------------- OTHER METHODS --------------------------
+
+    List<T> findAll();
+
+    T findById(I id);
+
+    void insert(T t);
+
+    void delete(I id);
+
+    void update(T t);
 }

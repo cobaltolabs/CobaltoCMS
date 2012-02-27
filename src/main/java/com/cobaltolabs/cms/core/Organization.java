@@ -7,5 +7,5 @@ package com.cobaltolabs.cms.core;
  *         Date: 22/02/12
  *         Time: 0:05
  */
-public class Organization {
+public class Organization extends DescriptionBean<Integer> {
 }

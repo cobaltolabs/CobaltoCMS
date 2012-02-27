@@ -1,5 +1,8 @@
 package com.cobaltolabs.cms.core.services;
 
+import com.cobaltolabs.cms.core.Organization;
+import com.cobaltolabs.cms.core.OrganizationNotFoundException;
+
 /**
  * Created by IntelliJ IDEA.
  *
@@ -7,5 +10,5 @@ package com.cobaltolabs.cms.core.services;
  *         Date: 22/02/12
  *         Time: 13:59
  */
-public class OrganizationService {
+public interface OrganizationService extends CmsService<Integer, Organization, OrganizationNotFoundException> {
 }

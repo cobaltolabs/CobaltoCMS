@@ -7,5 +7,18 @@ package com.cobaltolabs.cms.core;
  *         Date: 22/02/12
  *         Time: 0:01
  */
-public class IdBean {
+public abstract class IdBean<T> {
+// ------------------------------ FIELDS ------------------------------
+
+    protected T id;
+
+// --------------------- GETTER / SETTER METHODS ---------------------
+
+    public T getId() {
+        return id;
+    }
+
+    public void setId(T id) {
+        this.id = id;
+    }
 }

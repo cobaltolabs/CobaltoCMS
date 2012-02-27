@@ -9,6 +9,8 @@ package com.cobaltolabs.cms.core;
  */
 
 public class OrganizationNotFoundException extends Exception {
+// --------------------------- CONSTRUCTORS ---------------------------
+
     public OrganizationNotFoundException() {
     }
 
@@ -16,11 +18,11 @@ public class OrganizationNotFoundException extends Exception {
         super(s);
     }
 
-    public OrganizationNotFoundException(String s, Throwable throwable) {
-        super(s, throwable);
-    }
-
     public OrganizationNotFoundException(Throwable throwable) {
         super(throwable);
+    }
+
+    public OrganizationNotFoundException(String s, Throwable throwable) {
+        super(s, throwable);
     }
 }

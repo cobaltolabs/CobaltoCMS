@@ -3,6 +3,36 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="com.cobaltolabs.cms.core.daos.mybatis.OrganizationMapper">
-
-
+    <resultMap id="organization" type="com.cobaltolabs.cms.core.Organization">
+        <id column="org_id" property="id"/>
+        <result column="org_name" property="name"/>
+        <result column="org_description" property="description"/>
+    </resultMap>
+    <sql id="select">
+        select * from organizations
+    </sql>
+    <sql id="whereId">
+        where org_id = #{id}
+    </sql>
+    <select id="findAll" resultMap="organization">
+        <include refid="select"/>
+    </select>
+    <select id="findById" resultMap="organization" parameterType="java.lang.Integer">
+        <include refid="select"/>
+        <include refid="whereId"/>
+    </select>
+    <insert id="insert" parameterType="com.cobaltolabs.cms.core.Organization">
+        <selectKey keyProperty="id" resultType="int" order="BEFORE" statementType="PREPARED">
+            select nextval('organizations_org_id_seq')
+        </selectKey>
+        insert into organizations(org_id,org_name,org_description) values(#{id},#{name},#{description})
+    </insert>
+    <delete id="delete" parameterType="java.lang.Integer">
+        delete from organizations
+        <include refid="whereId"/>
+    </delete>
+    <update id="update" parameterType="com.cobaltolabs.cms.core.Organization">
+        update organizations set org_name = #{name}, org_description = #{description}
+        <include refid="whereId"/>
+    </update>
 </mapper>

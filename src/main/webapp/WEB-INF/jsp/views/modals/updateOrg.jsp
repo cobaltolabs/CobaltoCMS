@@ -4,5 +4,5 @@
   Date: 23/02/12
   Time: 1:27  
 --%>
-<cms:organization-form method="insert"/>
+<cms:organization-form method="update"/>
 

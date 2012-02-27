@@ -4,12 +4,5 @@
   Date: 22/02/12
   Time: 15:15  
 --%>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<html>
-<head>
-    <title></title>
-</head>
-<body>
-
-</body>
-</html>
+<s:url beanclass="com.cobaltolabs.cms.core.web.actions.DashboardActionBean" var="url" prependContext="false"/>
+<c:redirect url="${url}"/>

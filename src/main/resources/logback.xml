@@ -1,2 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<root/>
+<configuration>
+    <appender name="stdout" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>[CobaltoCMS] %d{HH:mm:ss.SSS} [%thread] %level %logger{32} - %msg%n</pattern>
+        </encoder>
+    </appender>
+    <!--<appender name="logfile" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        &lt;!&ndash;See also http://logback.qos.ch/manual/appenders.html#RollingFileAppender&ndash;&gt;
+        <File>${catalina.base}/logs/cobaltocms.log</File>
+        <encoder>
+            <pattern>%-30(%d{HH:mm:ss.SSS} [%thread]) %-5level %logger{32} - %msg%n</pattern>
+        </encoder>
+        <rollingPolicy class="ch.qos.logback.core.rolling.FixedWindowRollingPolicy">
+            <maxIndex>3</maxIndex>
+            <FileNamePattern>${catalina.base}/logs/twooter.log.%i</FileNamePattern>
+        </rollingPolicy>
+        <triggeringPolicy class="ch.qos.logback.core.rolling.SizeBasedTriggeringPolicy">
+            <MaxFileSize>50MB</MaxFileSize>
+        </triggeringPolicy>
+    </appender>-->
+    <logger name="org.springframework" level="INFO"/>
+    <!--<logger name="org.springframework.security" level="DEBUG"/>-->
+    <!--<logger name="org.springframework.jdbc" level="DEBUG"/>-->
+    <logger name="com.cobaltolabs" level="DEBUG"/>
+    <!--<logger name="org.springframework.web" level="DEBUG"/>-->
+    <root level="INFO">
+        <appender-ref ref="stdout"/>
+        <!--<appender-ref ref="logfile"/>-->
+    </root>
+</configuration>

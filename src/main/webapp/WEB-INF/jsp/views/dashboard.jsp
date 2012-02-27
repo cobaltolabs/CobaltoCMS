@@ -4,12 +4,9 @@
   Date: 22/02/12
   Time: 19:00  
 --%>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<html>
-<head>
-    <title></title>
-</head>
-<body>
+<f:message key="dashboard.title" var="title"/>
+<s:layout-render name="/WEB-INF/jsp/layouts/admin.jsp" title="${title}">
+    <s:layout-component name="main">
 
-</body>
-</html>
+    </s:layout-component>
+</s:layout-render>

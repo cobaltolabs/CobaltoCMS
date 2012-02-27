@@ -1,5 +1,7 @@
 package com.cobaltolabs.cms.core.services.impl;
 
+import com.cobaltolabs.cms.core.Organization;
+import com.cobaltolabs.cms.core.OrganizationNotFoundException;
 import com.cobaltolabs.cms.core.services.OrganizationService;
 
 /**
@@ -9,5 +11,6 @@ import com.cobaltolabs.cms.core.services.OrganizationService;
  *         Date: 22/02/12
  *         Time: 14:09
  */
-public class OrganizationServiceImpl implements OrganizationService {
+public class OrganizationServiceImpl extends AbstractCmsService<Integer, Organization, OrganizationNotFoundException> implements OrganizationService {
+
 }
