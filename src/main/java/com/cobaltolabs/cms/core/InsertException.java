@@ -9,6 +9,8 @@ package com.cobaltolabs.cms.core;
  */
 
 public class InsertException extends Exception {
+// --------------------------- CONSTRUCTORS ---------------------------
+
     public InsertException() {
     }
 
@@ -16,11 +18,11 @@ public class InsertException extends Exception {
         super(s);
     }
 
-    public InsertException(String s, Throwable throwable) {
-        super(s, throwable);
-    }
-
     public InsertException(Throwable throwable) {
         super(throwable);
+    }
+
+    public InsertException(String s, Throwable throwable) {
+        super(s, throwable);
     }
 }

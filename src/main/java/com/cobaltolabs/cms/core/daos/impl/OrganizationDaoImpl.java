@@ -17,10 +17,14 @@ import static com.cobaltolabs.cms.core.daos.DaoUtils.manageNull;
  *         Time: 14:52
  */
 public class OrganizationDaoImpl extends AbstractMyBatisCmsDao<Integer, Organization, OrganizationNotFoundException> implements OrganizationDao {
+// ------------------------------ FIELDS ------------------------------
+
     private static final Logger log = LoggerFactory.getLogger(OrganizationDaoImpl.class);
+    private OrganizationMapper organizationMapper;
+
 // ------------------------ INTERFACE METHODS ------------------------
 
-    private OrganizationMapper organizationMapper;
+
 // --------------------- Interface CmsDao ---------------------
 
     @Override
@@ -30,7 +34,6 @@ public class OrganizationDaoImpl extends AbstractMyBatisCmsDao<Integer, Organiza
     }
 
 // --------------------- Interface InitializingBean ---------------------
-
 
     @Override
     public void afterPropertiesSet() throws Exception {

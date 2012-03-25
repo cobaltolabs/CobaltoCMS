@@ -6,6 +6,13 @@
  */
 
 var Admin = {
+    /**
+     * Get All the entities in JSON format, and use a template to show them to the client
+     * @param url
+     * @param holder
+     * @param template
+     * @param callback
+     */
     all:function (url, holder, template, callback) {
         holder.empty();
         $.getJSON(url, function (result) {
@@ -13,6 +20,11 @@ var Admin = {
             callback()
         })
     },
+    /**
+     * Show a modal Form
+     * @param url
+     * @param modal
+     */
     formModal:function (url, modal) {
         var holder = modal.find('.modal-body');
         holder.empty();

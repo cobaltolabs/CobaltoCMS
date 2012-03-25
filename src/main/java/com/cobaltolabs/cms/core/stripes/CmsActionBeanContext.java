@@ -10,5 +10,4 @@ import net.sourceforge.stripes.action.ActionBeanContext;
  *         Time: 12:50
  */
 public class CmsActionBeanContext extends ActionBeanContext {
-
 }

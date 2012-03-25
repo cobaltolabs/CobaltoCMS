@@ -85,13 +85,13 @@ public class OrganizationActionBean extends CmsActionBean {
     }
 
     public Resolution update() throws IOException {
-            try {
-                organizationService.update(organization);
-                return jsonOkResolution();
-            } catch (UpdateException e) {
-                return jsonExceptionResolution(e);
-            }
+        try {
+            organizationService.update(organization);
+            return jsonOkResolution();
+        } catch (UpdateException e) {
+            return jsonExceptionResolution(e);
         }
+    }
 
     public Resolution updateForm() throws OrganizationNotFoundException {
         organization = get();

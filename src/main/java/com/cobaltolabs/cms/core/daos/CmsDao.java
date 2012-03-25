@@ -17,13 +17,12 @@ import java.util.List;
 public interface CmsDao<I, T extends IdBean<I>, E extends Exception> {
 // -------------------------- OTHER METHODS --------------------------
 
-    T find(I id) throws E;
+    void delete(I id) throws DeleteException;
 
     List<T> find();
+    T find(I id) throws E;
 
     I insert(T t) throws InsertException;
-
-    void delete(I id) throws DeleteException;
 
     void update(T t) throws UpdateException;
 }

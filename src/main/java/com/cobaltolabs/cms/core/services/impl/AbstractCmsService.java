@@ -19,16 +19,33 @@ import java.util.List;
  *         Time: 14:03
  */
 public abstract class AbstractCmsService<I, T extends IdBean<I>, E extends Exception> implements CmsService<I, T, E> {
-// ------------------------ INTERFACE METHODS ------------------------
+// ------------------------------ FIELDS ------------------------------
 
     private CmsDao<I, T, E> dao;
+
+// --------------------- GETTER / SETTER METHODS ---------------------
 
     @Required
     public void setDao(CmsDao<I, T, E> dao) {
         this.dao = dao;
     }
 
-    // --------------------- Interface CmsService ---------------------
+// ------------------------ INTERFACE METHODS ------------------------
+
+
+// --------------------- Interface CmsService ---------------------
+
+
+    @Override
+    @Transactional(rollbackFor = {DeleteException.class})
+    public void delete(T t) throws DeleteException {
+        dao.delete(t.getId());
+    }
+
+    @Transactional(readOnly = true)
+    public T get(I id) throws E{
+        return dao.find(id);
+    }
 
     @Override
     @Transactional(readOnly = true)
@@ -40,17 +57,6 @@ public abstract class AbstractCmsService<I, T extends IdBean<I>, E extends Excep
     @Transactional(rollbackFor = {InsertException.class})
     public I insert(T t) throws InsertException {
         return dao.insert(t);
-    }
-
-    @Override
-    @Transactional(rollbackFor = {DeleteException.class})
-    public void delete(T t) throws DeleteException {
-        dao.delete(t.getId());
-    }
-
-    @Transactional(readOnly = true)
-    public T get(I id) throws E{
-        return dao.find(id);
     }
 
     @Override

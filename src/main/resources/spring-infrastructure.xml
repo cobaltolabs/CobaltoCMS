@@ -9,4 +9,7 @@
     <beans profile="production">
         <context:property-placeholder location="classpath:app.properties"/>
     </beans>
+    <beans profile="test">
+        <context:property-placeholder location="classpath:test.properties"/>
+    </beans>
 </beans>

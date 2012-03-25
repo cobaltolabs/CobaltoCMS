@@ -14,13 +14,12 @@ import java.util.List;
 public interface CmsMapper<I, T extends IdBean<I>> {
 // -------------------------- OTHER METHODS --------------------------
 
+    void delete(I id);
     List<T> findAll();
 
     T findById(I id);
 
     void insert(T t);
-
-    void delete(I id);
 
     void update(T t);
 }

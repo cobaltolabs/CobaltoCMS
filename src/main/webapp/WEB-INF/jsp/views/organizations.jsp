@@ -76,8 +76,6 @@
                 };
 
                 all();
-
-
             });
         </script>
         <script type="text/template" id="trOrg">

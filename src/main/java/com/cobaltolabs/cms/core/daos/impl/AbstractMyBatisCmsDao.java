@@ -6,6 +6,8 @@ import com.cobaltolabs.cms.core.InsertException;
 import com.cobaltolabs.cms.core.UpdateException;
 import com.cobaltolabs.cms.core.daos.CmsDao;
 import com.cobaltolabs.cms.core.daos.mybatis.CmsMapper;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.InitializingBean;
 import org.springframework.beans.factory.annotation.Required;
 import org.springframework.dao.DataIntegrityViolationException;
@@ -22,6 +24,7 @@ import java.util.List;
 public abstract class AbstractMyBatisCmsDao<I, T extends IdBean<I>, E extends Exception> implements CmsDao<I, T, E>, InitializingBean {
 // ------------------------------ FIELDS ------------------------------
 
+    private static final Logger log = LoggerFactory.getLogger(AbstractMyBatisCmsDao.class);
     protected CmsMapper<I, T> mapper;
 
 // --------------------- GETTER / SETTER METHODS ---------------------
@@ -36,6 +39,16 @@ public abstract class AbstractMyBatisCmsDao<I, T extends IdBean<I>, E extends Ex
 
 // --------------------- Interface CmsDao ---------------------
 
+
+    @Override
+    public void delete(I id) throws DeleteException {
+        try {
+            mapper.delete(id);
+        } catch (DataIntegrityViolationException e) {
+            throw new DeleteException(e);
+        }
+    }
+
     @Override
     public List<T> find() {
         return mapper.findAll();
@@ -47,16 +60,8 @@ public abstract class AbstractMyBatisCmsDao<I, T extends IdBean<I>, E extends Ex
             mapper.insert(t);
             return t.getId();
         } catch (DataIntegrityViolationException e) {
+            log.error("Error inserting", e);
             throw new InsertException(e);
-        }
-    }
-
-    @Override
-    public void delete(I id) throws DeleteException {
-        try {
-            mapper.delete(id);
-        } catch (DataIntegrityViolationException e) {
-            throw new DeleteException(e);
         }
     }
 

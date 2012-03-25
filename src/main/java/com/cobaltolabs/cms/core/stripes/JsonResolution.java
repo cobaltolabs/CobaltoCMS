@@ -13,10 +13,21 @@ import java.io.IOException;
  *         Time: 23:44
  */
 public class JsonResolution extends StreamingResolution {
+// ------------------------------ FIELDS ------------------------------
+
     public static final String CONTENT_TYPE = "application/json";
-    // --------------------------- CONSTRUCTORS ---------------------------
+    private Object object;
+
+// --------------------------- CONSTRUCTORS ---------------------------
 
     public JsonResolution(ObjectMapper objectMapper, Object object) throws IOException {
         super(CONTENT_TYPE, objectMapper.writeValueAsString(object));
+        this.object = object;
+    }
+
+// --------------------- GETTER / SETTER METHODS ---------------------
+
+    public Object getObject() {
+        return object;
     }
 }

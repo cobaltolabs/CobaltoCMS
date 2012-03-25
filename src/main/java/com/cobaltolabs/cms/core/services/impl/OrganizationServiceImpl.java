@@ -12,5 +12,4 @@ import com.cobaltolabs.cms.core.services.OrganizationService;
  *         Time: 14:09
  */
 public class OrganizationServiceImpl extends AbstractCmsService<Integer, Organization, OrganizationNotFoundException> implements OrganizationService {
-
 }
